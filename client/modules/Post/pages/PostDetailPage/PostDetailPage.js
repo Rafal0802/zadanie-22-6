@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { getShowEditPost } from '../../../App/AppReducer';
-import { fetchPost, editPostRequest } from '../../PostActions';
 import { toggleEditPost } from '../../../App/AppActions';
 
 
@@ -11,7 +10,7 @@ import { toggleEditPost } from '../../../App/AppActions';
 import styles from '../../components/PostListItem/PostListItem.css';
 
 // Import Actions
-import { fetchPost } from '../../PostActions';
+import { fetchPost, editPostRequest } from '../../PostActions';
 
 // Import Selectors
 import { getPost } from '../../PostReducer';
@@ -19,13 +18,12 @@ import { getPost } from '../../PostReducer';
 export class PostDetailPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      name: this.props.post.name,
+      title: this.props.post.title,
+      content: this.props.post.content,
+    };
   }
-
-  this.state = {
-    name: this.props.post.name,
-    title: this.props.post.title,
-    content: this.props.post.content,
-  };
 
   handleInputChange = (event) => {
     const { value, name } = event.target;
@@ -75,21 +73,21 @@ export class PostDetailPage extends React.Component {
       </div>
     );
   }
-
-  function mapDispatchToProps(dispatch, props) {
-    return {
-      toggleEditPost: () => dispatch(toggleEditPost()),
-      editPostRequest: (post) => dispatch(editPostRequest(props.params.cuid, post)),
-    };
-  }
-
-  function mapStateToProps(state, props) {
-    return {
-      post: getPost(state, props.params.cuid),
-      showEditPost: getShowEditPost(state),
-    };
-  }
 }
+function mapDispatchToProps(dispatch, props) {
+  return {
+    toggleEditPost: () => dispatch(toggleEditPost()),
+     editPostRequest: (post) => dispatch(editPostRequest(props.params.cuid, post)),
+ };
+}
+
+function mapStateToProps(state, props) {
+  return {
+    post: getPost(state, props.params.cuid),
+     showEditPost: getShowEditPost(state),
+  };
+}
+
 
 // Actions required to provide data for this component to render in server side.
 PostDetailPage.need = [params => {

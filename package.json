@@ -15,7 +15,7 @@
     "clean": "rimraf dist",
     "slate": "rimraf node_modules && npm install",
     "lint": "eslint client server",
-    "mongod": "mkdirp mongo-db && \"C:/Program Files/MongoDB/Server/3.2/bin/mongod.exe\" --dbpath mongo-db"
+    "mongod": "mkdirp mongo-db && \"C:/Program Files/MongoDB/Server/3.6/bin/mongod.exe\" --dbpath mongo-db"
   },
   "pre-commit": [
     "lint",
