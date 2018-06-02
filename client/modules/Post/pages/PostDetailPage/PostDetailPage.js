@@ -81,13 +81,6 @@ function mapDispatchToProps(dispatch, props) {
  };
 }
 
-function mapStateToProps(state, props) {
-  return {
-    post: getPost(state, props.params.cuid),
-     showEditPost: getShowEditPost(state),
-  };
-}
-
 
 // Actions required to provide data for this component to render in server side.
 PostDetailPage.need = [params => {
@@ -98,6 +91,7 @@ PostDetailPage.need = [params => {
 function mapStateToProps(state, props) {
   return {
     post: getPost(state, props.params.cuid),
+    showEditPost: getShowEditPost(state),
   };
 }
 

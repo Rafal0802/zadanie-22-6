@@ -54,6 +54,8 @@
     "sanitize-html": "^1.11.4"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "@fortawesome/react-fontawesome": "0.0.20",
     "ava": "^0.15.2",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
