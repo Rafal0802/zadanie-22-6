@@ -8,6 +8,8 @@ export default {
     twitterMessage: 'We are on Twitter',
     by: 'By',
     deletePost: 'Delete Post',
+    thumbupPost: 'Thumb Up',
+    thumbdownPost: 'Thumb Down',
     createNewPost: 'Create new post',
     authorName: 'Author\'s Name',
     postTitle: 'Post Title',
