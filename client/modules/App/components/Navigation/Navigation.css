@@ -1,0 +1,15 @@
+.nav ul {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.nav ul li {
+  float: left;
+}
+
+.nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
