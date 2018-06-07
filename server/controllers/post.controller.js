@@ -87,3 +87,23 @@ export function editPost(req, res) {
     res.json({ post });
   });
 }
+
+export function thumbupPost(req, res) {
+  Post.findOneAndUpdate({ cuid: req.params.cuid }, { $inc: { votes: 1 }}, (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    res.status(200).end();
+  });
+}
+
+export function thumbdownPost(req, res) {
+  Post.findOneAndUpdate({ cuid: req.params.cuid }, { $inc: { votes: -1 }}, (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    res.status(200).end();
+  });
+}

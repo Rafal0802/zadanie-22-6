@@ -17,4 +17,9 @@ router.route('/posts/:cuid').delete(PostController.deletePost);
 // Update a post by cuid
 router.route('/posts/:cuid').put(PostController.editPost);
 
+// Thumbup and thumbdown a post by cuid
+
+router.route('/posts/:cuid/up').put(PostController.thumbupPost);
+router.route('/posts/:cuid/down').put(PostController.thumbdownPost);
+
 export default router;
